@@ -455,3 +455,20 @@
   display: none;
 
 }
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: rgba(255, 241, 247, 1);
+    --color-accent: rgba(255, 141, 203, 1);
+    --color-text: rgba(53, 52, 48, 1);
+    --color-title: rgba(53, 52, 48, 1);
+    --main-font: 'IBM Plex mono';
+    --gap-card: 20px;
+    --fs-main: 18px;
+    --color-border-hover: rgba(50, 49, 45, 0.4);
+    --color-focus: rgba(255, 194, 230, 1);
+    --bg-image-url: url(../images/cover-image-light.png);
+    --color-button: rgba(53, 52, 48, 1);
+    --color-title-text: rgba(53, 52, 48, 1);
+  }
+}
