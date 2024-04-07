@@ -1,7 +1,7 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  /*padding: 10px 10px 0 10px;*/
+  padding: 10px 10px 0 10px;
   object-fit: contain;
   overflow-x: hidden;
   background-color: var(--bg-color);
@@ -462,7 +462,7 @@
     --color-accent: rgba(255, 141, 203, 1);
     --color-text: rgba(53, 52, 48, 1);
     --color-title: rgba(53, 52, 48, 1);
-    --main-font: 'IBM Plex mono';
+    --main-font: 'IBM Plex mono', sans-serif;
     --gap-card: 20px;
     --fs-main: 18px;
     --color-border-hover: rgba(50, 49, 45, 0.4);
