@@ -1,15 +1,15 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
+  padding: 10px 10px 0 10px;
+  object-fit: contain;
   overflow-x: hidden;
-  padding: 10px;
   background-color: var(--bg-color);
   background-image: var(--bg-image-url);
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-position: center top;
   background-size: auto 100vh;
-  object-fit: contain;
+  background-attachment: fixed;
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
 }
 
@@ -17,8 +17,7 @@
   display: grid;
   justify-items: end;
   align-content: start;
-  height: calc(100vh - 20px);
-  margin-bottom: 10px;
+  height: 100vh;
 }
 
 .header::before {
@@ -42,16 +41,16 @@
 }
 
 .rec {
+  position: absolute;
+  top: 10px;
+  right: 19px;
   display: flex;
   align-items: center;
   gap: 10px;
-  position: absolute;
-  right: 19px;
-  top: 10px;
+  color: var(--color-accent);
   font-family: var(--main-font);
   font-size: var(--fs-main);
   line-height: 25px;
-  color: var(--color-accent);
   text-transform: uppercase;
 }
 
@@ -60,9 +59,9 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background-color: var(--color-accent);
-  box-shadow: 0px 0px 4px 2px var(--color-accent);
   vertical-align: middle;
+  box-shadow: 0px 0px 4px 2px var(--color-accent);
+  background-color: var(--color-accent);
 }
 
 .header__theme-menu {
@@ -72,23 +71,23 @@
 .header__theme-menu-list {
   display: flex;
   flex-direction: column;
-  list-style: none;
   gap: 10px;
+  list-style: none;
 }
 
 .header__theme-menu-button {
-  background: none;
   border: none;
   padding: 0;
+  color: var(--color-button);
+  font-family: var(--main-font);
+  font-weight: 400;
+  font-size: var(--fs-main);
+  line-height: 18px;
+  text-transform: lowercase;
+  background: none;
+  background-color: var(--fs-main);
   inline-size: 70px;
   block-size: 26px;
-  color: var(--color-button);
-  text-transform: lowercase;
-  font-family: var(--main-font);
-  font-size: var(--fs-main);
-  background-color: var(--fs-main);
-  line-height: 18px;
-  font-weight: 400;
 }
 
 .header__theme-menu-button_active {
@@ -96,10 +95,11 @@
 }
 
 .title-h1 {
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  font-family: var(--main-font);
-  color: var(--color-focus); 
+  color: var(--color-focus);
+  font-family: var(--main-font); 
   font-weight: bold;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 95.7px;
 }
 
 .header_title {
@@ -111,19 +111,19 @@
 }
 
 .header_title-h2 {
-  line-height: 23.4px;
   width: min(calc(100vw - 20px), 364px);
   margin-top: 55px;
   margin-bottom: 31px;
+  line-height: 23.4px;
 }
 
 .title-decor {
-  font-family: var(--main-font);
-  font-size: var(--fs-main);
   color: var(--color-title);
-  background-color: var(--color-accent);
+  font-family: var(--main-font);
   font-weight: 700;
+  font-size: var(--fs-main);
   line-height: 23.4px;
+  background-color: var(--color-accent);
 }
 
 /**/
@@ -134,7 +134,7 @@
 }
 
 .content {
-  padding-top: 40px;
+  padding-top: 30px;
   padding-bottom: 40px;
 }
 
@@ -144,20 +144,20 @@
 }
 
 .title-normal {
-  font-family: var(--main-font);
-  font-size: var(--fs-main);
   color: var(--color-title-text);
-  background-color: transparent;
+  font-family: var(--main-font);
   font-weight: 700;
+  font-size: var(--fs-main);
+  background-color: transparent;
 }
 
 .text-decor {
-  font-family: var(--main-font);
-  font-size: var(--fs-main);
   color: var(--color-text);
-  background-color: transparent;
+  font-family: var(--main-font);
   font-weight: 400;
+  font-size: var(--fs-main);
   line-height: 23.4px;
+  background-color: transparent;
 }
 
 .link_text {
@@ -166,8 +166,8 @@
 }
 
 .content__list-title-decore {
-  font-weight: 400;
   margin-top: 20px;
+  font-weight: 400;
 }
 
 .content_block_image {
@@ -185,10 +185,9 @@
 .footer {
   display: grid;
   grid-template-columns: 1fr;
-  align-items: center;
   justify-items: center;
-  block-size: calc(100vh - 20px);
-  margin-top: 10px;
+  align-items: center;
+  block-size: 100vh;
 }
 
 .footer::before {
@@ -197,6 +196,7 @@
   align-self: start;
   width: 25px;
   height: 25px;
+  margin-top: 10px;
   border-top: 1px solid var(--color-button);
   border-right: 1px solid var(--color-button);
 }
@@ -207,6 +207,7 @@
   align-self: end;
   width: 25px;
   height: 25px;
+  margin-bottom: 10px;
   border-bottom: 1px solid var(--color-button);
   border-left: 1px solid var(--color-button);
 }
@@ -218,34 +219,30 @@
 }
 
 .link_text:hover {
-  cursor: pointer;
   border-bottom: 1px solid var(--color-text);
+  cursor: pointer;
 }
 
 .header__theme-menu-button:focus-visible {
-  outline: none;
   border-bottom: 1px solid var(--color-button);
+  outline: none;
 }
 
 .link_text:focus-visible {
-  outline: none;
   border: 1px solid var(--color-text);
+  outline: none;
 }
 
 /*MEDIA*/
 
 @media screen and (min-width: 768px) {
   .page {
-    padding: 20px;
-  }
-
-  .header {
-    margin-bottom: 20px;
+    padding: 20px 20px 0 20px;
   }
 
   .rec {
-    right: 29px;
     top: 20px;
+    right: 29px;
   } 
 
   .header__theme-menu {
@@ -259,6 +256,7 @@
 
   .title-h1 {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    line-height: 99px;
   }
 
   .header_title-h2 {
@@ -267,10 +265,10 @@
 
   .section_why {
     grid-template-columns: 236px auto;
-    gap: 20px;
     grid-template-areas:
     "title-normal title-decor" 
     "title-normal title-decor";
+    gap: 20px;
   }
 
   .section_why .title-normal {
@@ -291,9 +289,9 @@
 
   .section_how {
     grid-template-columns: 236px auto;
-    gap: 20px;
     grid-template-areas:
     "title-normal title-decor";
+    gap: 20px;
   }
 
   .section_how .title-normal {
@@ -309,14 +307,14 @@
   }
 
   .content_block_image {
-    gap: 20px;
-    grid-template-rows: auto 192px 230px 318px;
     grid-template-columns: 229px 230px 229px;
+    grid-template-rows: auto 192px 230px 318px;
     grid-template-areas: 
     "title-decor title-decor title-decor"
     "img_sunset img_sunset img_ice"
     "img_tape img_books img_ice"
     "img_tape img_street img_street";
+    gap: 20px;
   }
 
   .content_block_image .title-decor {
@@ -329,12 +327,12 @@
 
   .content_block_image .img_ice {
     grid-area: img_ice;
-    width: 100%;
+    height: 100%;
   }
 
   .content_block_image .img_tape {
     grid-area: img_tape;
-    width: 100%;
+    height: 100%;
   }
 
   .content_block_image .img_books {
@@ -355,8 +353,15 @@
   }
 
   .footer {
-    block-size: calc(100vh - 40px);
+    block-size: 100vh;
+  }
+
+  .footer::before {
     margin-top: 20px;
+  }
+
+  .footer::after {
+    margin-bottom: 20px;
   }
 }
 
@@ -379,8 +384,8 @@
 
   .header__theme-menu {
     grid-area: header__theme-menu;
-    margin: 0;
     justify-self: center;
+    margin: 0;
   }
 
   .header .header_title {
@@ -391,14 +396,13 @@
 
   .header .header_title-h2 {
     grid-area: header_title-h2;
-    margin: 0;
     width: 491px;
+    margin: 0;
   }
 
   .header::after {
     grid-area: header_after;
     margin: 0;
-
   }
 
   .header__theme-menu-list {
@@ -412,10 +416,10 @@
 
   .section_what {
     grid-template-columns: repeat(3, 1fr);
-    gap: 0 20px;
     grid-template-areas: 
     "title-normal title-normal title-normal"
     "title-decor title-decor title-decor";
+    gap: 0 20px;
   }
 
   .section_what .title-normal {
@@ -433,9 +437,9 @@
   
 
   .content_block_image {
-    gap: 20px;
-    grid-template-rows: auto 260px 315px 428px;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 260px 315px 428px;
+    gap: 20px;
   }
 
   .content_block_image .img_ice {
