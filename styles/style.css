@@ -1,7 +1,7 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  padding: 10px 10px 0 10px;
+  /*padding: 10px 10px 0 10px;*/
   object-fit: contain;
   overflow-x: hidden;
   background-color: var(--bg-color);
