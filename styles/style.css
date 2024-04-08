@@ -1,39 +1,42 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  padding: 10px 10px 0 10px;
   object-fit: contain;
-  overflow-x: hidden;
   background-color: var(--bg-color);
   background-image: var(--bg-image-url);
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: auto 100vh;
+  background-size: cover;
   background-attachment: fixed;
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
 }
 
 .header {
+  padding: 0 10px;
   display: grid;
   justify-items: end;
   align-content: start;
   height: 100vh;
 }
 
-.header::before {
+
+
+.decorated-zone::before {
   content: " ";
   justify-self: end;
   align-self: start;
+  margin-top: 10px;
   width: 25px;
   height: 25px;
   border-top: 1px solid var(--color-button);
   border-right: 1px solid var(--color-button);
 }
 
-.header::after {
+.decorated-zone::after {
   content: " ";
   justify-self: start;
   align-self: end;
+  margin-bottom: 10px;
   width: 25px;
   height: 25px;
   border-bottom: 1px solid var(--color-button);
@@ -76,6 +79,7 @@
 }
 
 .header__theme-menu-button {
+  appearance: none;
   border: none;
   padding: 0;
   color: var(--color-button);
@@ -85,12 +89,13 @@
   line-height: 18px;
   text-transform: lowercase;
   background: none;
-  background-color: var(--fs-main);
+  background-color: transparent;
   inline-size: 70px;
   block-size: 26px;
 }
 
 .header__theme-menu-button_active {
+  pointer-events: none;
   border: 1px solid var(--color-button);
 }
 
@@ -106,12 +111,12 @@
   margin-top: 65px;
 }
 
-.text-shadow {
+.header_text-shadow {
   text-shadow: 4px 4px 0 var(--color-accent);
 }
 
 .header_title-h2 {
-  width: min(calc(100vw - 20px), 364px);
+  max-width: min(calc(100vw - 20px), 364px);
   margin-top: 55px;
   margin-bottom: 31px;
   line-height: 23.4px;
@@ -134,8 +139,7 @@
 }
 
 .content {
-  padding-top: 30px;
-  padding-bottom: 40px;
+  padding: 40px 10px 40px 10px;
 }
 
 .content_block {
@@ -163,6 +167,7 @@
 .link_text {
   text-decoration: none;
   text-shadow: 2px 2px 0 var(--color-accent);
+  cursor: pointer;
 }
 
 .content__list-title-decore {
@@ -178,38 +183,22 @@
 .img {
   width: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 /**/
 
 .footer {
+  padding: 0 10px;
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
   align-items: center;
-  block-size: 100vh;
+  height: 100vh;
 }
 
-.footer::before {
-  content: " ";
-  justify-self: end;
-  align-self: start;
-  width: 25px;
-  height: 25px;
-  margin-top: 10px;
-  border-top: 1px solid var(--color-button);
-  border-right: 1px solid var(--color-button);
-}
-
-.footer::after {
-  content: " ";
-  justify-self: start;
-  align-self: end;
-  width: 25px;
-  height: 25px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid var(--color-button);
-  border-left: 1px solid var(--color-button);
+.footer_text-shadow {
+  text-shadow: 2px 2px 0 var(--color-accent);
 }
 
 /**/
@@ -223,21 +212,35 @@
   cursor: pointer;
 }
 
-.header__theme-menu-button:focus-visible {
-  border-bottom: 1px solid var(--color-button);
+.header__theme-menu-button:focus {
   outline: none;
 }
 
-.link_text:focus-visible {
-  border: 1px solid var(--color-text);
+.link_text:focus {
   outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--color-button);
+}
+
+.link_text:focus-visible {
+  outline: 1px solid var(--color-text);
 }
 
 /*MEDIA*/
 
 @media screen and (min-width: 768px) {
-  .page {
-    padding: 20px 20px 0 20px;
+  .header {
+    padding: 0 20px;
+  }
+
+  .decorated-zone::before {
+    margin-top: 20px;
+  }
+
+  .decorated-zone::after {
+    margin-bottom: 20px;
   }
 
   .rec {
@@ -284,7 +287,7 @@
   }
 
   .section_what .title-normal {
-    width: 236px;
+    max-width: 236px;
   }
 
   .section_how {
@@ -344,8 +347,7 @@
   }
 
   .content {
-    padding-top: 40px;
-    padding-bottom: 60px;
+    padding: 60px 20px 60px 20px;
   }
 
   .content_block {
@@ -353,15 +355,7 @@
   }
 
   .footer {
-    block-size: 100vh;
-  }
-
-  .footer::before {
-    margin-top: 20px;
-  }
-
-  .footer::after {
-    margin-bottom: 20px;
+    padding: 0 20px;
   }
 }
 
@@ -369,23 +363,22 @@
   .header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: calc(26px + 273px) calc(130px + 114px) 71px calc(25px + 89px);
+    grid-template-rows: calc(26px + 273px + 20px) calc(130px + 114px) 71px calc(25px + 89px);
     grid-template-areas: 
-    ". header__theme-menu header_before"
+    ". header__theme-menu decorated-zone_before"
     "header_title header_title header_title"
     "header_title-h2 header_title-h2 header_title-h2"
-    "header_after header_after header_after";
+    "decorated-zone_after decorated-zone_after decorated-zone_after";
   }
   
-  .header::before {
-    grid-area: header_before;
-    margin: 0;
+  .header.decorated-zone::before {
+    grid-area: decorated-zone_before;
   }
 
   .header__theme-menu {
     grid-area: header__theme-menu;
     justify-self: center;
-    margin: 0;
+    margin: 20px;
   }
 
   .header .header_title {
@@ -396,12 +389,12 @@
 
   .header .header_title-h2 {
     grid-area: header_title-h2;
-    width: 491px;
+    max-width: 491px;
     margin: 0;
   }
 
-  .header::after {
-    grid-area: header_after;
+  .header.decorated-zone::after {
+    grid-area: decorated-zone_after;
     margin: 0;
   }
 
@@ -424,7 +417,7 @@
 
   .section_what .title-normal {
     grid-area: title-normal;
-    width: 315px;
+    max-width: 315px;
   }
 
   .section_what .title-decor {
@@ -435,7 +428,6 @@
     grid-template-columns: 315px auto;
   }
   
-
   .content_block_image {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto 260px 315px 428px;
@@ -448,27 +440,5 @@
 
   .content_block_image .img_tape {
     height: 100%;
-  }
-}
-
-.theme_light .rec {
-  display: none;
-
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg-color: rgba(255, 241, 247, 1);
-    --color-accent: rgba(255, 141, 203, 1);
-    --color-text: rgba(53, 52, 48, 1);
-    --color-title: rgba(53, 52, 48, 1);
-    --main-font: 'IBM Plex mono', sans-serif;
-    --gap-card: 20px;
-    --fs-main: 18px;
-    --color-border-hover: rgba(50, 49, 45, 0.4);
-    --color-focus: rgba(255, 194, 230, 1);
-    --bg-image-url: url(../images/cover-image-light.png);
-    --color-button: rgba(53, 52, 48, 1);
-    --color-title-text: rgba(53, 52, 48, 1);
   }
 }
